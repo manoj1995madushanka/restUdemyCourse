@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.response.StudentResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,9 @@ public class StudentController {
 
     @GetMapping("/get")
     //@RequestMapping(value = "/get",method = RequestMethod.GET) getMapping similar to this line also
-    public String getStudent()
-    {
-        return appName;
+    public StudentResponse getStudent() {
+
+        StudentResponse response = new StudentResponse(1, "fName", "lName");
+        return response;
     }
 }
