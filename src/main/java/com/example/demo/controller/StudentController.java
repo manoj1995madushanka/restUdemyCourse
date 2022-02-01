@@ -11,7 +11,7 @@ public class StudentController {
 
 
     // accessing properties of application property
-    @Value("${app.name}")
+    @Value("${app.name:Default value if property not exist}")
     private String appName;
 
     @GetMapping("/get")
