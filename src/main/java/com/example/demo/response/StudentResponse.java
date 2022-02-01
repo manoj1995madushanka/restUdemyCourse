@@ -9,7 +9,7 @@ import lombok.Data;
 * return this as a json object from API
 * JACKSON library is used to convert this to json object
  */
-@Data
+@Data // getters, setters, equals, hashcode, toString
 @AllArgsConstructor
 public class StudentResponse {
     @JsonIgnore // this will exclude id from endpoint response
