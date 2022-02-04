@@ -92,4 +92,13 @@ public class StudentController {
         studentService.deleteStudent(id);
         return "Student deleted.";
     }
+
+    /**
+     * find students by first name path variable
+     * */
+    @GetMapping("/getStudentsByFirstname/{firstname}")
+    public List<StudentResponse> getStudentsByFirstName(@PathVariable("firstName") String firstName)
+    {
+        return studentService.getStudentsNyFirstname(firstName);
+    }
 }

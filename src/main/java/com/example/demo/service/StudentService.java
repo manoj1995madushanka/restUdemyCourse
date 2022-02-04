@@ -6,6 +6,7 @@ import com.example.demo.response.StudentResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,5 +32,17 @@ public class StudentService {
         //ToDo
         // check student availability before delete
         studentRepository.deleteById(id);
+    }
+
+    public List<StudentResponse> getStudentsNyFirstname(String firstName) {
+        List<Student> students = studentRepository.findByFirstName(firstName);
+
+        List<StudentResponse> studentResponses = new ArrayList<>();
+
+        students.stream().forEach(std -> {
+            studentResponses.add(new StudentResponse(std));
+        });
+
+        return studentResponses;
     }
 }
