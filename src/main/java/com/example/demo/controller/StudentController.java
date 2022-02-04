@@ -126,6 +126,12 @@ public class StudentController {
     @GetMapping("/getStudentsByFirstnameIn")
     public List<StudentResponse> getStudentsByFirstOrLastName(@RequestBody InQueryRequest inQueryRequest) {
 
+        // payload example
+
+        /*{
+            "firstNames":["abc","def"]
+        }*/
+
         return studentService.getStudentsByFirstIn(inQueryRequest.getFirstNames());
     }
 }
