@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -52,8 +53,11 @@ public class StudentController {
      * endpoint for create student
      * */
     @PostMapping("/create")
-    public StudentResponse createStudent(@RequestBody StudentRequest studentRequest)
+    public StudentResponse createStudent(@Valid @RequestBody StudentRequest studentRequest)
     {
+        // first convert json object to java object using @RequestBody annotation
+        // after check validations those are available in java class from @Valid annotation
+
         Student student = new Student(studentRequest);
         return studentService.createStudent(student);
     }
