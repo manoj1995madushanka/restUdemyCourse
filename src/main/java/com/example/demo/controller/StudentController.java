@@ -135,4 +135,14 @@ public class StudentController {
 
         return studentService.getStudentsByFirstIn(inQueryRequest.getFirstNames());
     }
+
+
+    /*
+    * pagination example
+    * */
+    @GetMapping("/getAllWithPagination")
+    public List<StudentResponse> getAllWithPagination(@RequestParam int pageNo, @RequestParam int pageSize)
+    {
+        return studentService.getAllWithPagination(pageNo,pageSize);
+    }
 }
