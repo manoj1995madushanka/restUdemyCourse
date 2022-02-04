@@ -1,5 +1,6 @@
 package com.example.demo.response;
 
+import com.example.demo.entity.Student;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -17,5 +18,12 @@ public class StudentResponse {
     @JsonProperty("first_name") // endpoint response return first_name as key of json
     private String firstName;
     private String lastName;
+
+    public StudentResponse(Student student)
+    {
+        this.firstName = student.getFirstName();
+        this.lastName = student.getLastName();
+        this.id = student.getId();
+    }
 
 }

@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController  // combination of response body and controller
 @RequestMapping("/api/student") // mapping controller base uri
@@ -33,10 +36,16 @@ public class StudentController {
 
     /**
      * return all the students db have
-     * */
+     */
     @GetMapping("/getAll")
-    public List<Student> getAll()
-    {
-        return studentService.getStudents();
+    public List<StudentResponse> getAll() {
+        List<Student> students = studentService.getStudents();
+        List<StudentResponse> studentResponses = new ArrayList<>();
+
+        students.stream().forEach(std -> {
+            studentResponses.add(new StudentResponse(std));
+        });
+
+        return studentResponses;
     }
 }
