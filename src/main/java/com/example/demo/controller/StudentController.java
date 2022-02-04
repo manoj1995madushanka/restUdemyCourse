@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Student;
+import com.example.demo.response.StudentRequest;
 import com.example.demo.response.StudentResponse;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,5 +46,15 @@ public class StudentController {
         });
 
         return studentResponses;
+    }
+
+    /**
+     * endpoint for create student
+     * */
+    @PostMapping("/create")
+    public StudentResponse createStudent(@RequestBody StudentRequest studentRequest)
+    {
+        Student student = new Student(studentRequest);
+        return studentService.createStudent(student);
     }
 }
