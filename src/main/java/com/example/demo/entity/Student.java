@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.example.demo.response.StudentRequest;
+import com.example.demo.response.UpdateStudentRequest;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,5 +24,11 @@ public class Student {
     public Student(StudentRequest studentRequest) {
         this.firstName = studentRequest.getFirstName();
         this.lastName = studentRequest.getLastName();
+    }
+
+    public Student(UpdateStudentRequest updateStudentRequest) {
+        this.id = updateStudentRequest.getId();
+        this.firstName = updateStudentRequest.getFirstName();
+        this.lastName = updateStudentRequest.getLastName();
     }
 }

@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.entity.Student;
 import com.example.demo.response.StudentRequest;
 import com.example.demo.response.StudentResponse;
+import com.example.demo.response.UpdateStudentRequest;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -51,14 +52,22 @@ public class StudentController {
 
     /**
      * endpoint for create student
-     * */
+     */
     @PostMapping("/create")
-    public StudentResponse createStudent(@Valid @RequestBody StudentRequest studentRequest)
-    {
+    public StudentResponse createStudent(@Valid @RequestBody StudentRequest studentRequest) {
         // first convert json object to java object using @RequestBody annotation
         // after check validations those are available in java class from @Valid annotation
 
         Student student = new Student(studentRequest);
         return studentService.createStudent(student);
+    }
+
+    /**
+     * update endpoint
+     */
+    @PutMapping("/update")
+    public StudentResponse updateStudent(@Valid @RequestBody UpdateStudentRequest updateStudentRequest) {
+        Student student = new Student(updateStudentRequest);
+        return studentService.updateStudent(student);
     }
 }
