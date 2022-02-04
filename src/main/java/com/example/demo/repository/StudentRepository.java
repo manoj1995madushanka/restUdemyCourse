@@ -16,4 +16,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     List<Student> findByFirstNameOrLastName(String firstName, String lastname);
 
+    // select * from student where firstName in ('abs','def')
+    List<Student> findByFirstNameIn(List<String> firstNames);
+
 }

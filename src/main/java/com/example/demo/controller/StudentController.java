@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Student;
+import com.example.demo.response.InQueryRequest;
 import com.example.demo.response.StudentRequest;
 import com.example.demo.response.StudentResponse;
 import com.example.demo.response.UpdateStudentRequest;
@@ -117,5 +118,14 @@ public class StudentController {
                                                        @PathVariable("lastName") String lastName) {
 
         return studentService.getStudentsByFirstOrLastName(firstName, lastName);
+    }
+
+    /**
+     * find students by first name in
+     */
+    @GetMapping("/getStudentsByFirstnameIn")
+    public List<StudentResponse> getStudentsByFirstOrLastName(@RequestBody InQueryRequest inQueryRequest) {
+
+        return studentService.getStudentsByFirstIn(inQueryRequest.getFirstNames());
     }
 }

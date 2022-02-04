@@ -61,4 +61,10 @@ public class StudentService {
 
         return studentResponses;
     }
+
+    public List<StudentResponse> getStudentsByFirstIn(List<String> firstNames) {
+        List<Student> students = studentRepository.findByFirstNameIn(firstNames);
+
+        return mapStudentDaoToDtoList(students);
+    }
 }
