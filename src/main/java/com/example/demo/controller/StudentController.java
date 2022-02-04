@@ -81,4 +81,15 @@ public class StudentController {
         studentService.deleteStudent(id);
         return "Student deleted.";
     }
+
+    /**
+     * delete student using path variable
+     * /delete/1
+     * */
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudentByPathVariable(@PathVariable("id") Integer id)
+    {
+        studentService.deleteStudent(id);
+        return "Student deleted.";
+    }
 }
