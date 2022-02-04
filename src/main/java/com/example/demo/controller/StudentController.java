@@ -95,10 +95,11 @@ public class StudentController {
     /**
      * find students by first name path variable
      */
-    @GetMapping("/getStudentsByFirstname/{firstname}")
+    // comment this out because controller layer can not have same parameter list with two method
+    /*@GetMapping("/getStudentsByFirstname/{firstname}")
     public List<StudentResponse> getStudentsByFirstName(@PathVariable("firstName") String firstName) {
         return studentService.getStudentsByFirstname(firstName);
-    }
+    }*/
 
     /**
      * find students by first name and last name path variable
@@ -124,7 +125,7 @@ public class StudentController {
      * find students by first name in
      */
     @GetMapping("/getStudentsByFirstnameIn")
-    public List<StudentResponse> getStudentsByFirstOrLastName(@RequestBody InQueryRequest inQueryRequest) {
+    public List<StudentResponse> getStudentsByFirstNameIn(@RequestBody InQueryRequest inQueryRequest) {
 
         // payload example
 
