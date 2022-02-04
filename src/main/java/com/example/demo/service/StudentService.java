@@ -34,9 +34,19 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
-    public List<StudentResponse> getStudentsNyFirstname(String firstName) {
+    public List<StudentResponse> getStudentsByFirstname(String firstName) {
         List<Student> students = studentRepository.findByFirstName(firstName);
 
+        return mapStudentDaoToDtoList(students);
+    }
+
+    public List<StudentResponse> getStudentsByFullName(String firstName, String lastName) {
+        List<Student> students = studentRepository.findByFirstNameAndLastName(firstName, lastName);
+
+        return mapStudentDaoToDtoList(students);
+    }
+
+    private List<StudentResponse> mapStudentDaoToDtoList(List<Student> students) {
         List<StudentResponse> studentResponses = new ArrayList<>();
 
         students.stream().forEach(std -> {

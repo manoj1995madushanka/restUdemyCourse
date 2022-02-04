@@ -74,10 +74,9 @@ public class StudentController {
     /**
      * delete student using query param
      * /delete?id=1
-     * */
+     */
     @DeleteMapping("/delete")
-    public String deleteStudent(@RequestParam("id") Integer id)
-    {
+    public String deleteStudent(@RequestParam("id") Integer id) {
         studentService.deleteStudent(id);
         return "Student deleted.";
     }
@@ -85,20 +84,28 @@ public class StudentController {
     /**
      * delete student using path variable
      * /delete/1
-     * */
+     */
     @DeleteMapping("/delete/{id}")
-    public String deleteStudentByPathVariable(@PathVariable("id") Integer id)
-    {
+    public String deleteStudentByPathVariable(@PathVariable("id") Integer id) {
         studentService.deleteStudent(id);
         return "Student deleted.";
     }
 
     /**
      * find students by first name path variable
-     * */
+     */
     @GetMapping("/getStudentsByFirstname/{firstname}")
-    public List<StudentResponse> getStudentsByFirstName(@PathVariable("firstName") String firstName)
-    {
-        return studentService.getStudentsNyFirstname(firstName);
+    public List<StudentResponse> getStudentsByFirstName(@PathVariable("firstName") String firstName) {
+        return studentService.getStudentsByFirstname(firstName);
+    }
+
+    /**
+     * find students by first name and last name path variable
+     */
+    @GetMapping("/getStudentsByFirstname/{firstname}/{lastName}")
+    public List<StudentResponse> getStudentsByFullName(@PathVariable("firstName") String firstName,
+                                                       @PathVariable("lastName") String lastName) {
+
+        return studentService.getStudentsByFullName(firstName, lastName);
     }
 }
