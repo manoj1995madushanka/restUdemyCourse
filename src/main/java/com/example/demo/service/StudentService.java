@@ -46,6 +46,12 @@ public class StudentService {
         return mapStudentDaoToDtoList(students);
     }
 
+    public List<StudentResponse> getStudentsByFirstOrLastName(String firstName, String lastName) {
+        List<Student> students = studentRepository.findByFirstNameOrLastName(firstName, lastName);
+
+        return mapStudentDaoToDtoList(students);
+    }
+
     private List<StudentResponse> mapStudentDaoToDtoList(List<Student> students) {
         List<StudentResponse> studentResponses = new ArrayList<>();
 
