@@ -1,0 +1,15 @@
+JPA stands for java persistence api
+
+ORM(object relational mapping) is map our java object to relevant database table row
+
+Hibernate is a one of implementation of the JPA
+
+JPQL(java persistence query language) refer java class instead of table for querying data
+
+using this tools we don't need to rewrite all queries when we switch databases
+
+
+
+
+
+
