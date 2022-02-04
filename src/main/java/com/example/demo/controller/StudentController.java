@@ -70,4 +70,15 @@ public class StudentController {
         Student student = new Student(updateStudentRequest);
         return studentService.updateStudent(student);
     }
+
+    /**
+     * delete student using query param
+     * /delete?id=1
+     * */
+    @DeleteMapping("/delete")
+    public String deleteStudent(@RequestParam("id") Integer id)
+    {
+        studentService.deleteStudent(id);
+        return "Student deleted.";
+    }
 }

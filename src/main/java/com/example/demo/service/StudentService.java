@@ -26,4 +26,10 @@ public class StudentService {
         // check student exist in db first
         return new StudentResponse(studentRepository.save(student));
     }
+
+    public void deleteStudent(Integer id) {
+        //ToDo
+        // check student availability before delete
+        studentRepository.deleteById(id);
+    }
 }
