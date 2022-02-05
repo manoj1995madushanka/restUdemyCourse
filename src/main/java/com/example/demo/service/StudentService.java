@@ -84,4 +84,10 @@ public class StudentService {
         List<Student> students = studentRepository.findAll(sort);
         return mapStudentDaoToDtoList(students);
     }
+
+    public List<StudentResponse> getStudentsByFirstNameLike(String firstName) {
+        List<Student> students = studentRepository.findByFirstNameContains(firstName);
+
+        return mapStudentDaoToDtoList(students);
+    }
 }

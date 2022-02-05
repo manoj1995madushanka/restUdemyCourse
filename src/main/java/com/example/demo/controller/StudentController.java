@@ -154,4 +154,13 @@ public class StudentController {
     {
         return studentService.getAllWithSorting();
     }
+
+    /*
+     * like query example
+     * */
+    @GetMapping("/likeFirstName/{firstName}")
+    public List<StudentResponse> getAllFirstNameLike(String firstName)
+    {
+        return studentService.getStudentsByFirstNameLike(firstName);
+    }
 }

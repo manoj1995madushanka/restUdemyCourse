@@ -19,4 +19,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     // select * from student where firstName in ('abs','def')
     List<Student> findByFirstNameIn(List<String> firstNames);
 
+    // select * from student where first_name like '%abc%'
+    List<Student> findByFirstNameContains(String firstName);
+
 }
