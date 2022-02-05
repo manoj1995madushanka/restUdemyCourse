@@ -80,7 +80,7 @@ public class StudentService {
 
     public List<StudentResponse> getAllWithSorting() {
 
-        Sort sort = Sort.by(Sort.Direction.ASC,"firstName");
+        Sort sort = Sort.by(Sort.Direction.ASC,"firstName","lastName");
         List<Student> students = studentRepository.findAll(sort);
         return mapStudentDaoToDtoList(students);
     }
