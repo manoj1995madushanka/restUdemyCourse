@@ -21,6 +21,11 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
+    // using this annotation we can add parameter that not in db table,
+    // If not added this annotation run time exception accrues
+    @Transient
+    private String fullName;
+
     public Student(StudentRequest studentRequest) {
         this.firstName = studentRequest.getFirstName();
         this.lastName = studentRequest.getLastName();
