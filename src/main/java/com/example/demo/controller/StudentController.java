@@ -145,4 +145,13 @@ public class StudentController {
     {
         return studentService.getAllWithPagination(pageNo,pageSize);
     }
+
+    /*
+     * sorting example
+     * */
+    @GetMapping("/getAllWithSorting")
+    public List<StudentResponse> getAllWithSorting()
+    {
+        return studentService.getAllWithSorting();
+    }
 }
