@@ -22,4 +22,10 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     // select * from student where first_name like '%abc%'
     List<Student> findByFirstNameContains(String firstName);
 
+    // start with query
+    List<Student> findByFirstNameStartsWith(String firstName);
+
+    // ends with query
+    List<Student> findByFirstNameEndsWith (String firstName);
+
 }
