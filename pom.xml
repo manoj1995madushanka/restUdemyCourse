@@ -49,6 +49,13 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+		<!--we can use open API as well as swagger but when we use openAPI comment out
+		above 2 dependencies and remove swagger config annotation of main class and un comment below dependency-->
+		<!--<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.6</version>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
