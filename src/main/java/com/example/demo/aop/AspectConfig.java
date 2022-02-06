@@ -14,13 +14,28 @@ public class AspectConfig {
 
     /**
      * before advice example
-     *
+     * <p>
      * (* means all )
      * all class of controller package all method and any parameter(..)
-     * */
+     */
     @Before(value = "execution(* com.example.demo.controller.*.*(..))")
-    public void beforeAdvice(JoinPoint joinPoint)
-    {
+    public void beforeAdvice(JoinPoint joinPoint) {
+        logger.info("inside before advice");
+    }
+
+    /**
+     * before advice with one method parameter
+     */
+    @Before(value = "execution(* com.example.demo.controller.*.*(..)) and args(object)")
+    public void beforeAdviceWithOneParam(JoinPoint joinPoint, Object object) {
+        logger.info("inside before advice");
+    }
+
+    /**
+     * before advice with two method parameter
+     */
+    @Before(value = "execution(* com.example.demo.controller.*.*(..)) and args(object1,object2)")
+    public void beforeAdviceWithTwoParam(JoinPoint joinPoint, Object object1,Object object2) {
         logger.info("inside before advice");
     }
 }
