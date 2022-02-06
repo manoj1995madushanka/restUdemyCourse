@@ -1,0 +1,6 @@
+using crone scheduler we can run code snip within time period
+it will execute automatically
+
+for this we need to generate crone expression first
+there are many tools are in the net simply check cronemaker and got that website
+copy generated code without last * mark
