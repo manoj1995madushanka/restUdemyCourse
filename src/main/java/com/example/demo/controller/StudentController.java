@@ -55,6 +55,8 @@ public class StudentController {
         logger.error("Inside the error");
         logger.warn("Inside the warn");
         logger.info("Inside the info");
+        // below logs are not showing in cmd because spring
+        // configured default log level as Info
         logger.debug("Inside the debug");
         logger.trace("Inside the trace");
 
