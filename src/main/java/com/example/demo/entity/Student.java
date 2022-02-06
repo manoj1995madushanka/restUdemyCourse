@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +26,10 @@ public class Student {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
+
+    // one to many relationship
+    @OneToMany(mappedBy = "student")
+    private List<Subject> subjects;
 
     // using this annotation we can add parameter that not in db table,
     // If not added this annotation run time exception accrues

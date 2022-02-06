@@ -19,4 +19,8 @@ public class Subject {
     @Column(name = "marks_obtain")
     private Double marksObtain;
 
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Student student;
+
 }
