@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Address;
 import com.example.demo.entity.Student;
+import com.example.demo.repository.AddressRepository;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.response.StudentResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +18,22 @@ import java.util.List;
 public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private AddressRepository addressRepository;
 
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
 
     public StudentResponse createStudent(Student student) {
+
+        /*
+        when we have parent child relationship we save parent object first
+         and get primary key to assign child object
+        */
+        Address address = new Address(student.getAddress().getCity(),student.getAddress().getStreet());
+        student.setAddress(addressRepository.save(address));
+
         return new StudentResponse(studentRepository.save(student));
     }
 

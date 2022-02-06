@@ -18,4 +18,9 @@ public class Address {
     private String street;
     @Column(name = "city")
     private String city;
+
+    public Address(String city, String street) {
+        this.city = city;
+        this.street = street;
+    }
 }

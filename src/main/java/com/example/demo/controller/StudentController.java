@@ -32,7 +32,7 @@ public class StudentController {
     //@RequestMapping(value = "/get",method = RequestMethod.GET) getMapping similar to this line also
     public StudentResponse getStudent() {
 
-        StudentResponse response = new StudentResponse(1, "fName", "lName");
+        StudentResponse response = new StudentResponse(1, "fName", "lName","street","city");
         return response;
     }
 
