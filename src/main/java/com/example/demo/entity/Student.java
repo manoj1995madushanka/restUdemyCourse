@@ -21,6 +21,11 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
+    // one to one relationship
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
     // using this annotation we can add parameter that not in db table,
     // If not added this annotation run time exception accrues
     @Transient

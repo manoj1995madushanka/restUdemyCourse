@@ -13,4 +13,6 @@ public class StudentRequest {
     @NotBlank(message = "first name is required.")
     private String firstName;
     private String lastName;
+    private String street;
+    private String city;
 }

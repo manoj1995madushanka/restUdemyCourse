@@ -10,4 +10,6 @@ public class UpdateStudentRequest {
     private int id;
     private String firstName;
     private String lastName;
+    private String street;
+    private String city;
 }

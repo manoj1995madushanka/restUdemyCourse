@@ -18,12 +18,16 @@ public class StudentResponse {
     @JsonProperty("first_name") // endpoint response return first_name as key of json
     private String firstName;
     private String lastName;
+    private String street;
+    private String city;
 
     public StudentResponse(Student student)
     {
         this.firstName = student.getFirstName();
         this.lastName = student.getLastName();
         this.id = student.getId();
+        this.street = student.getAddress().getStreet();
+        this.city = student.getAddress().getCity();
     }
 
 }
