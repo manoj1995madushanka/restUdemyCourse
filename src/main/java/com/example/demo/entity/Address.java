@@ -19,6 +19,9 @@ public class Address {
     @Column(name = "city")
     private String city;
 
+    @OneToOne(mappedBy = "address")
+    private Student student;
+
     public Address(String city, String street) {
         this.city = city;
         this.street = street;
