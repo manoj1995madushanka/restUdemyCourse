@@ -49,4 +49,10 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Transactional
     @Query("delete from student where firstName =:firstName")
     Integer deleteByFirstName(@Param("firstName") String firstName);
+
+
+    /*
+    * get student list of same city
+    * */
+    List<Student> findByAddressCity(String city);
 }
