@@ -1,10 +1,8 @@
 package com.example.demo.aop;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -56,5 +54,22 @@ public class AspectConfig {
     @AfterReturning(value = "execution(* com.example.demo.controller.*.*(..))", returning = "returningObject")
     public void afterReturnAdvice(JoinPoint joinPoint,Object returningObject) {
         logger.info("after return advice");
+    }
+
+    /**
+     * around advice example
+     * */
+    @Around(value = "execution(* com.example.demo.controller.*.*(..))")
+    public void aroundReturnAdvice(ProceedingJoinPoint joinPoint, Object returningObject) {
+        logger.info("around advice");
+
+        Object returnObj = null;
+        try {
+            returnObj = joinPoint.proceed();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+        logger.info(returnObj.toString());
     }
 }
