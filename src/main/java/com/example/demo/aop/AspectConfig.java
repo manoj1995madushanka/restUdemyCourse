@@ -2,6 +2,7 @@ package com.example.demo.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -45,6 +46,15 @@ public class AspectConfig {
      * */
     @After(value = "execution(* com.example.demo.controller.*.*(..))")
     public void afterAdvice(JoinPoint joinPoint) {
-        logger.info("after before advice");
+        logger.info("after advice");
+    }
+
+    /**
+     * after returning advice example
+     * in here we can access method return value because this executes when value return from method
+     * */
+    @AfterReturning(value = "execution(* com.example.demo.controller.*.*(..))", returning = "returningObject")
+    public void afterReturnAdvice(JoinPoint joinPoint,Object returningObject) {
+        logger.info("after return advice");
     }
 }
