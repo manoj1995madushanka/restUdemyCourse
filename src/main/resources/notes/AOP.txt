@@ -1,0 +1,15 @@
+AOP(aspect oriented programming)
+
+separating the logic and provides modularity
+
+point cut : filter out methods and decide which methods to intercept
+
+Advice : when to intercept method
+advice types :  Before(before the method execute),
+				After (after the method execute but before retun value),
+				AfterReturning (after return value)
+				Around (combination of before and after retun)
+
+Aspect : combination of point cut and advice
+
+Join Point : execution instance of an advice
