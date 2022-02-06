@@ -6,15 +6,15 @@ import com.example.demo.response.StudentRequest;
 import com.example.demo.response.StudentResponse;
 import com.example.demo.response.UpdateStudentRequest;
 import com.example.demo.service.StudentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController  // combination of response body and controller
 @RequestMapping("/api/student") // mapping controller base uri
@@ -27,6 +27,15 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    /*
+    * configure spring logs
+    * there are 5 log levels
+    * ERROR < WARN < INFO < DEBUG < TRACE
+    * */
+    Logger logger = LoggerFactory.getLogger(getClass());
+
+
 
     @GetMapping("/get")
     //@RequestMapping(value = "/get",method = RequestMethod.GET) getMapping similar to this line also
@@ -41,6 +50,14 @@ public class StudentController {
      */
     @GetMapping("/getAll")
     public List<StudentResponse> getAll() {
+
+        // logs with different log levels
+        logger.error("Inside the error");
+        logger.warn("Inside the warn");
+        logger.info("Inside the info");
+        logger.debug("Inside the debug");
+        logger.trace("Inside the trace");
+
         List<Student> students = studentService.getStudents();
         List<StudentResponse> studentResponses = new ArrayList<>();
 
