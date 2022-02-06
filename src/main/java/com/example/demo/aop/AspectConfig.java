@@ -1,6 +1,7 @@
 package com.example.demo.aop;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -37,5 +38,13 @@ public class AspectConfig {
     @Before(value = "execution(* com.example.demo.controller.*.*(..)) and args(object1,object2)")
     public void beforeAdviceWithTwoParam(JoinPoint joinPoint, Object object1,Object object2) {
         logger.info("inside before advice");
+    }
+
+    /**
+     * after advice example
+     * */
+    @After(value = "execution(* com.example.demo.controller.*.*(..))")
+    public void afterAdvice(JoinPoint joinPoint) {
+        logger.info("after before advice");
     }
 }
