@@ -20,7 +20,7 @@ public class Subject {
     private Double marksObtain;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "student_id")
     private Student student;
 
 }

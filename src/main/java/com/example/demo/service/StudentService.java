@@ -35,6 +35,10 @@ public class StudentService {
         student.setAddress(addressRepository.save(address));
 
         return new StudentResponse(studentRepository.save(student));
+
+        // Todo
+        // before return statement check subject available and map them to subject dao
+        //and save subject list
     }
 
     public StudentResponse updateStudent(Student student) {
