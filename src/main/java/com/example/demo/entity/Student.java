@@ -22,7 +22,7 @@ public class Student {
     private String lastName;
 
     // one to one relationship
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
